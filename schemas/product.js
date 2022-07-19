@@ -88,8 +88,10 @@ export default {
       title: "Price",
       name: "price",
       type: "number",
-      validation: (Rule) =>
+      validation: (Rule) => [
         Rule.required().error("Are you trying to sell items for free"),
+        Rule.greaterThan(0).error("The price must be greater than 0"),
+      ],
     },
     {
       title: "Discounted",
@@ -123,7 +125,7 @@ export default {
             ? "This feid cannot be empty when discounts are allowed"
             : true
         ),
-        Rule.greaterThan(0).error("Must be greater than 0"),
+        Rule.greaterThan(0).error("Discounted price cannot be smaller than 0"),
       ],
     },
     {

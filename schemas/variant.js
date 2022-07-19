@@ -1,5 +1,3 @@
-import { isUniqueAcrossAllDocuments } from "../lib/unique";
-
 export default {
   title: "Variants",
   name: "variants",
@@ -17,27 +15,12 @@ export default {
       ],
     },
     {
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 50,
-        isUnique: isUniqueAcrossAllDocuments,
-      },
-      validation: (Rule) => Rule.required().error("A slug is required"),
-    },
-    {
       title: "Image",
       name: "image",
       type: "image",
       options: {
         hotspot: true,
       },
-      validation: (Rule) =>
-        Rule.required().error(
-          "An Image is required to visually identify this variant",
-        ),
     },
     {
       title: "Price",
@@ -65,7 +48,9 @@ export default {
             ? "This feild is required when disocunts are allowed"
             : true
         ),
-        Rule.greaterThan(0).error("Must be greater than 0"),
+        Rule.greaterThan(0).error(
+          "Quantity cannot be smaller than 0, If you want to disable this feild then dont allow discounts",
+        ),
         Rule.integer().error("Cannot have a decimal value"),
       ],
     },
@@ -80,7 +65,9 @@ export default {
             ? "This feild is required when disocunts are allowed"
             : true
         ),
-        Rule.greaterThan(0).error("Must be greater than 0"),
+        Rule.greaterThan(0).error(
+          "The discounted price must be greater than 0",
+        ),
       ],
     },
     {
