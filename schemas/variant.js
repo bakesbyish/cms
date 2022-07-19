@@ -41,7 +41,7 @@ export default {
       title: "The quanity that the discount applies from",
       name: "dicountedFrom",
       type: "number",
-      hidden: ({ document }) => !document?.disocunted,
+      hidden: ({ document }) => !document?.discounted,
       validation: (Rule) => [
         Rule.custom((field, context) =>
           (context.document.discounted && field === undefined)
@@ -58,7 +58,7 @@ export default {
       title: "The price after the disocunt is applied",
       name: "dicountedPrice",
       type: "number",
-      hidden: ({ document }) => !document?.disocunted,
+      hidden: ({ document }) => !document?.discounted,
       validation: (Rule) => [
         Rule.custom((field, context) =>
           (context.document.discounted && field === undefined)
