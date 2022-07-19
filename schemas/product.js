@@ -51,7 +51,7 @@ export default {
       options: {
         hotspot: true,
       },
-      vlidation: (Rule) =>
+      validation: (Rule) =>
         Rule.required().error(
           "An Image is required to visually identify the product",
         ),
