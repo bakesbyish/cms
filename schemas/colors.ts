@@ -167,6 +167,7 @@ export default defineType({
 			name: "hasWholesalePrice",
 			description:
 				"Turn on this field if the price of the product varies when he/she buy say for example 12 items. If you have offer turned on this discount amount will be based on the offer price",
+			hidden: (ctx) => !ctx.document?.hasSKU,
 			type: "boolean",
 			initialValue: false,
 		}),
@@ -209,7 +210,10 @@ export default defineType({
 				}),
 				rule.custom((field, ctx) => {
 					const { document } = ctx;
-					if (document && document.unit === measurement[0].value) {
+					if (
+						document?.hasWholesalePrice &&
+						document?.unit === measurement[0].value
+					) {
 						if (Number.isInteger(field)) {
 							return true;
 						}

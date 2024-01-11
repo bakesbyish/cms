@@ -154,7 +154,10 @@ export default defineType({
 				}),
 				rule.custom((field, ctx) => {
 					const { document } = ctx;
-					if (document && document.unit === measurement[0].value) {
+					if (
+						document?.hasWholesalePrice &&
+						document?.unit === measurement[0].value
+					) {
 						if (Number.isInteger(field)) {
 							return true;
 						}
