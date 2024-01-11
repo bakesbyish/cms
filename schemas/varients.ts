@@ -142,7 +142,11 @@ export default defineType({
 			validation: (rule) => [
 				rule.custom((field, ctx) => {
 					const { document } = ctx;
-					if (document?.qualifyingQty && field === undefined) {
+					if (
+						document?.hasWholesalePrice &&
+						document?.qualifyingQty &&
+						field === undefined
+					) {
 						return "You must set a quantity if your have enabled wholesale specification";
 					}
 
