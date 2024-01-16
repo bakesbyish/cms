@@ -3,7 +3,6 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
 import { colorInput } from "@sanity/color-input";
-import { groqdPlaygroundTool } from "groqd-playground";
 
 export default defineConfig({
 	name: "default",
@@ -32,7 +31,6 @@ export default defineConfig({
 		}),
 		visionTool(),
 		colorInput(),
-		groqdPlaygroundTool(),
 	],
 
 	schema: {
