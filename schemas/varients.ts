@@ -2,6 +2,7 @@ import { defineField, defineType } from "sanity";
 import { BsCollection } from "react-icons/bs";
 import measurement from "../lib/measurement";
 import { IoImageOutline } from "react-icons/io5";
+import { isUniqueAcrossAllDocuments } from "../lib/lib";
 
 export default defineType({
 	title: "Varients",
@@ -21,6 +22,19 @@ export default defineType({
 				rule.min(3).error("Title cannot be smaller than 3 characters"),
 				rule.max(50).error("Title cannot be larger than 50 characters"),
 			],
+		}),
+		defineField({
+			title: "Slug",
+			name: "slug",
+			type: "slug",
+			description:
+				"This feature does not add any functionality improvements that you may notice it is for the developement side of the website, press the generate button and you will be good to go",
+			options: {
+				source: "title",
+				maxLength: 50,
+				isUnique: isUniqueAcrossAllDocuments,
+			},
+			validation: (rule) => [rule.required().error("Required")],
 		}),
 		defineField({
 			title: "SKU (Stock Keeping Unit)",
