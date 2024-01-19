@@ -91,7 +91,6 @@ export default defineType({
 			name: "images",
 			type: "array",
 			icon: IoImageOutline,
-			hidden: (ctx) => !ctx.document?.hasSKU,
 			description: "The image is used to visually identify the product",
 			of: [
 				{
