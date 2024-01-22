@@ -82,6 +82,14 @@ export default defineType({
 			},
 		}),
 		defineField({
+			title: "In Stock",
+			name: "hasStock",
+			type: "boolean",
+			description:
+				"Toggle this value to off if the varient specified is out of stock",
+			initialValue: true,
+		}),
+		defineField({
 			title: "Price",
 			name: "price",
 			type: "number",

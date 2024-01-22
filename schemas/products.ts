@@ -95,6 +95,16 @@ export default defineType({
 			initialValue: false,
 		}),
 		defineField({
+			title: "In Stock",
+			name: "hasStock",
+			type: "boolean",
+			hidden: (ctx) =>
+				ctx.document ? (ctx.document.hasVarients ? true : false) : false,
+			description:
+				"Toggle this value to off if the item specified is out of stock",
+			initialValue: true,
+		}),
+		defineField({
 			title: "Varients",
 			name: "variations",
 			type: "array",
