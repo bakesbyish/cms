@@ -48,7 +48,7 @@ export function Description(props: StringInputProps) {
 								{
 									method: "POST",
 									body: JSON.stringify({
-										req: `I have a Cake equipment shop for the website of that shop I was hoping you could write a concise yet simple description in simple English about ${productTitle}. When using markdown format use GitHub flavoured markdown format only and keep proper spacing too. (And the character length should not be more than 3000 characters)`,
+										req: `I have a Cake equipment shop for the website of that shop I was hoping you could write a concise yet simple description in simple English about ${productTitle}. When using markdown format use GitHub flavoured markdown format only and keep proper spacing too. (And the character length should not be more than 500 characters)`,
 									}),
 								},
 							);
