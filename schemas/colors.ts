@@ -38,20 +38,19 @@ export default defineType({
 			],
 		}),
 		defineField({
+			title: "In Stock",
+			name: "hasStock",
+			type: "boolean",
+			description: "Toggle this off if only the specific color is out of stock",
+			initialValue: true,
+		}),
+		defineField({
 			title: "Has SKU",
 			name: "hasSKU",
 			type: "boolean",
 			description:
 				"Toggle this if there is an Price and SKU associated with the Color",
 			initialValue: false,
-		}),
-		defineField({
-			title: "In Stock",
-			name: "hasStock",
-			type: "boolean",
-			hidden: (ctx) => !ctx.document?.hasSKU,
-			description: "Toggle this off if only the specific color is out of stock",
-			initialValue: true,
 		}),
 		defineField({
 			title: "SKU (Stock Keeping Unit)",
